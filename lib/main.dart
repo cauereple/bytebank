@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  print('Bem vindo ao Bytebank');
+  runApp(Text('Bem vindo ao Bytebank', textDirection: TextDirection.ltr,));
 }
 
