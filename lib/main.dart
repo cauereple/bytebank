@@ -52,8 +52,6 @@ class FormularioTransferencia extends StatelessWidget {
     double.tryParse(_controladorCampoValor.text);
     if (numeroConta != null && valor != null) {
       final transferenciaCriada = Transferencia(valor, numeroConta);
-      debugPrint('Criando transferência');
-      debugPrint('$transferenciaCriada');
       Navigator.pop(context, transferenciaCriada);
     }
   }
@@ -117,9 +115,9 @@ class ListaTransferenciasState extends State<ListaTransferencias> {
           return FormularioTransferencia();
         }));
         future.then((transferenciaRecebida) {
-          debugPrint('chegou no then do future');
-          debugPrint('$transferenciaRecebida');
-          widget._transferencias.add(transferenciaRecebida);
+          setState(() {
+            widget._transferencias.add(transferenciaRecebida);
+          });
         });
       },
       ),
